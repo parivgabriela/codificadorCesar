@@ -31,7 +31,7 @@ def sumarElementoArray(aSumar,listaAmodificar):
     elif unNumero<limiteInferior and unNumero!=espacio:
       listaModificada.append(unNumero)
     elif nuevoValor>limiteSuperior:
-      resto=limiteSuperior-nuevoValor
+      resto=nuevoValor-limiteSuperior
       nuevaPosicion=limiteInferior+resto
       listaModificada.append(nuevaPosicion)
   return listaModificada
@@ -63,7 +63,6 @@ def evaluarLimites(lista,desplazamiento):
 
 
 listaABC=list(ascii_uppercase)
-arraynumerosAscii=[65,"al",90,"sin considerar ñ"]
 arrayMensajeCodificado=[]
 nombreArchivo=sys.argv[1]
 with open(nombreArchivo,"r+") as f:
