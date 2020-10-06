@@ -56,15 +56,19 @@ def codificarMensaje(mensajeAcodificar,recorrido):
     mensajePalabraCodificada=palabraCodificada+'\n'
     mensajeCodificado.append(mensajePalabraCodificada)
   return mensajeCodificado
+def miFirma(nombreArchivo):
+    print("Nombre del Programa: Cifrador")
+    print("Autora: Gabriela Pari Vaca | parivgabriela@gmail.com")
+    print(f"Archivo a cifrar: {nombreArchivo}")
+    archivoCifrado=nombreArchivo+".cifrado"
+    print(f"Archivo cifrado: {archivoCifrado}")
 
-def evaluarLimites(lista,desplazamiento):
-  #funcion que evalua aquellos numeros que no esten en mi rango alfabeto ascci, son los que con el reccorrido van mas de la Z nro 90
-  return 0
 
-
+nombreArchivo=sys.argv[1]
+miFirma(nombreArchivo)
 listaABC=list(ascii_uppercase)
 arrayMensajeCodificado=[]
-nombreArchivo=sys.argv[1]
+
 with open(nombreArchivo,"r+") as f:
   #contenidoACodificar=f.read()
   contenidoPrevioACodificar=f.readlines()
