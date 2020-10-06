@@ -1,4 +1,5 @@
 from string import ascii_uppercase
+import sys
 def reemplazarUnElementoLista(elemento,reemplazo,lista):
   otroArray=[]
   for unElemento in lista:
@@ -33,8 +34,6 @@ def sumarElementoArray(aSumar,listaAmodificar):
       resto=limiteSuperior-nuevoValor
       nuevaPosicion=limiteInferior+resto
       listaModificada.append(nuevaPosicion)
-
-  print(listaModificada)
   return listaModificada
 
 def transformarAChar(lista):
@@ -56,7 +55,6 @@ def codificarMensaje(mensajeAcodificar,recorrido):
     palabraCodificada=''.join(arrayMensajeCodificado)
     mensajePalabraCodificada=palabraCodificada+'\n'
     mensajeCodificado.append(mensajePalabraCodificada)
-  print(mensajeCodificado)
   return mensajeCodificado
 
 def evaluarLimites(lista,desplazamiento):
@@ -67,7 +65,8 @@ def evaluarLimites(lista,desplazamiento):
 listaABC=list(ascii_uppercase)
 arraynumerosAscii=[65,"al",90,"sin considerar ñ"]
 arrayMensajeCodificado=[]
-with open("mi_archivo.txt","r+") as f:
+nombreArchivo=sys.argv[1]
+with open(nombreArchivo,"r+") as f:
   #contenidoACodificar=f.read()
   contenidoPrevioACodificar=f.readlines()
   contenidoACodificar=reemplazarUnElementoLista('\n','',contenidoPrevioACodificar)
@@ -78,3 +77,4 @@ with open("mi_archivo.txt","r+") as f:
 with open("codificado.txt.cifrado","w+") as f:
   f.writelines(arrayMensajeCodificado)
   f.close()
+#manejo de los argumentos
