@@ -1,9 +1,7 @@
-from string import ascii_uppercase
 import sys
 def reemplazarUnElementoLista(elemento,reemplazo,lista):
   otroArray=[]
   for unElemento in lista:
-    #A mejorar - voy a remplazar el salto de linea por un caracter para luego la busqueda sea mas facil
     nuevoElemento=unElemento.replace(elemento,reemplazo)
     otroArray.append(nuevoElemento)
   return otroArray
@@ -41,7 +39,7 @@ def transformarAChar(lista):
   for numero in lista:
     letra=chr(numero)
     arrayNuevo.append(letra)
-  return arrayNuevo 
+  return arrayNuevo
 
 def codificarMensaje(mensajeAcodificar,recorrido):
   mensajeCodificado=[]
@@ -52,8 +50,11 @@ def codificarMensaje(mensajeAcodificar,recorrido):
     nuevoArrayAscii=sumarElementoArray(recorrido,arrayAscii)
     #traduccion
     arrayMensajeCodificado=transformarAChar(nuevoArrayAscii)
+    #junto el array de caracteres para tener un array palabras
     palabraCodificada=''.join(arrayMensajeCodificado)
+    #agrego los saltos de linea \n
     mensajePalabraCodificada=palabraCodificada+'\n'
+    #agrega la palabra codificada en un array que los almacena renglon por renglon
     mensajeCodificado.append(mensajePalabraCodificada)
   return mensajeCodificado
 def miFirma(nombreArchivo):
@@ -66,7 +67,6 @@ def miFirma(nombreArchivo):
 
 nombreArchivo=sys.argv[1]
 miFirma(nombreArchivo)
-listaABC=list(ascii_uppercase)
 arrayMensajeCodificado=[]
 
 with open(nombreArchivo,"r+") as f:
@@ -77,7 +77,7 @@ with open(nombreArchivo,"r+") as f:
   #print(unArray)
   arrayMensajeCodificado=codificarMensaje(contenidoACodificar,numero_clave)
   f.close()
+  
 with open("codificado.txt.cifrado","w+") as f:
   f.writelines(arrayMensajeCodificado)
   f.close()
-#manejo de los argumentos
