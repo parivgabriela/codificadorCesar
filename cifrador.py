@@ -63,10 +63,11 @@ def miFirma(nombreArchivo):
     print(f"Archivo a cifrar: {nombreArchivo}")
     archivoCifrado=nombreArchivo+".cifrado"
     print(f"Archivo cifrado: {archivoCifrado}")
+    return archivoCifrado
 
 
 nombreArchivo=sys.argv[1]
-miFirma(nombreArchivo)
+nombreArchivoCifrado=miFirma(nombreArchivo)
 arrayMensajeCodificado=[]
 
 with open(nombreArchivo,"r+") as f:
@@ -78,6 +79,6 @@ with open(nombreArchivo,"r+") as f:
   arrayMensajeCodificado=codificarMensaje(contenidoACodificar,numero_clave)
   f.close()
   
-with open("codificado.txt.cifrado","w+") as f:
+with open(nombreArchivoCifrado,"w+") as f:
   f.writelines(arrayMensajeCodificado)
   f.close()
